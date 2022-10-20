@@ -25,12 +25,16 @@ for i in range(100, 1600, 100):
     currentLabel.draw()
     current_y += y_scale
 
+#opening file and reading lines in to variable
 nationsPop_contents = open("nationsPop.txt", 'r')
 nationsPop_lines = nationsPop_contents.readlines()
+
+# determines a length based on amount of data in file to create a properly scaled graph
 list_length = len(nationsPop_lines)
 current_x_value = (760/list_length)
 current_line = 1
 
+# for loop that iterates through lines and draws our bar graph
 for current_country in nationsPop_lines:
     current_country = current_country.strip().split(",")
     bar_height = ((int(current_country[1])/100_000_000)*46.153847)
